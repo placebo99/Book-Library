@@ -30,25 +30,23 @@ public class BookController
     }
 
     @DeleteMapping("/books/{id}")
-    public Book deleteBook(@PathVariable Long id)
+    public boolean deleteBook(@PathVariable Long id)
     {
         dao.delete(id);
-        return new Book();
-        // return true;
+        return true;
     }
 
     @PostMapping("/books")
     public Book add(@RequestBody Book book)
     {
         dao.save(book);
-        return dao.getById(book.getId());
+        return book;
     }
 
     @PutMapping("/books/{id}")
-    public Book update(@PathVariable Long id, @RequestBody Book book)
+    public Book update(@RequestBody Book book)
     {
-        book.setId(id); // redundant?
         dao.save(book);
-        return new Book(); // todo :: or (better) this book
+        return book;
     }
 }

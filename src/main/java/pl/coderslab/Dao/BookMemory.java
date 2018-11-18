@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// done :: GET /books/ Zwraca listę wszystkich książek.
-// todo :: POST /books/ Tworzy nową książkę na podstawie danych przekazanych z formularza i zapisuje ją do bazy danych.
-// done :: GET /books/{id} Wyświetla informacje o książce o podanym id.
-// todo :: PUT /books/{id} Zmienia informacje o książce o podanym id na nową.
-// done :: DELETE /books/{id} Usuwa książkę o podanym id z bazy danych.
-
 @Service
 @Primary
 public class BookMemory implements Memorable
@@ -47,7 +41,7 @@ public class BookMemory implements Memorable
     {
         try
         {
-            return this.list.stream().filter(book -> book.getId() == id).collect(Collectors.toList()).get(0);
+            return this.list.stream().filter(book -> book.getId().equals(id)).collect(Collectors.toList()).get(0);
         }
         catch (NullPointerException | IndexOutOfBoundsException e)
         {
@@ -67,13 +61,12 @@ public class BookMemory implements Memorable
         {
             update(book);
         }
-
     }
 
     @Override
     public void delete(Long id)
     {
-        this.list.removeIf(d -> d.getId().equals(id));
+        this.list.removeIf(b -> b.getId().equals(id));
     }
 
     private void add(Book book)
