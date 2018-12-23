@@ -34,4 +34,8 @@
             <version>2.9.0.pr2</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>booksLibraryAPI</finalName>
+    </build>
 </project>
