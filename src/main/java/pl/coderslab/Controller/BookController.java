@@ -1,12 +1,12 @@
-package pl.coderslab.Controller;
+package pl.codinglab.Controller;
 
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.Dao.Memorable;
-import pl.coderslab.Entity.Book;
+import pl.codinglab.Dao.Memorable;
+import pl.codinglab.Entity.Book;
 
 import java.util.List;
 
-@RestController // thanks to this produces=json is not required
+@RestController
 public class BookController
 {
     private final Memorable<Book> dao;
