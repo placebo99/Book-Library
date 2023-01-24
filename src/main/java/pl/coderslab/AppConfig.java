@@ -1,4 +1,4 @@
-package pl.coderslab;
+package pl.codinglab;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "pl.coderslab")
+@ComponentScan(basePackages = "pl.codinglab")
 public class AppConfig extends WebMvcConfigurerAdapter
 {
     @Override
@@ -16,6 +16,5 @@ public class AppConfig extends WebMvcConfigurerAdapter
     {
         registry.addMapping("/**")
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
-                //.allowedOrigins("http://localhost"); // comment this for local machine testing
     }
 }
